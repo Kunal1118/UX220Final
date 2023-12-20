@@ -2,11 +2,14 @@
 <html lang="en">
 
 <head>
-    <link rel="preconnect" href="https://fonts.googleapis.com%22%3E/
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400&display=swap" rel="stylesheet">
 
     <style>
+        body {
+            font-family: 'Noto Sans', sans-serif;
+        }
 
         #question {
             margin-top: 10px;
@@ -14,7 +17,7 @@
 
         #answer {
             color: red;
-            font-family: 'Cedarville Cursive', cursive;
+            font-family: 'Noto Sans', cursive;
             line-height: 2;
         }
 
@@ -33,11 +36,10 @@
         class Magic8Ball extends HTMLElement {
             connectedCallback() {
                 this.innerHTML =
-                `
+                    `
                 <button id="question">Ask</button>
                 <p id="answer"></p>
                 `;
-        
 
                 this.button = document.querySelector("#question");
                 this.prompt = document.querySelector("#prompt");
@@ -47,8 +49,8 @@
                     const aAnswers = ["yes", "definitely", "no"];
                     const nAnswer = Math.floor(Math.random() * aAnswers.length);
                     this.answer.innerHTML = aAnswers[nAnswer];
-                    this.answer.style.color = "red"; 
-                    this.answer.style.fontFamily = "'Cedarville Cursive', cursive"; 
+                    this.answer.style.color = "red";
+                    this.answer.style.fontFamily = "'Noto Sans', sans-serif";
                     this.prompt.style.display = "none";
                 });
             }
