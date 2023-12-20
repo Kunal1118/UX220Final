@@ -5,6 +5,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap" rel="stylesheet">
 
     <style>
         body {
@@ -17,7 +18,7 @@
 
         #answer {
             color: red;
-            font-family: 'Noto Sans', cursive;
+            font-family: 'Cedarville Cursive', cursive;
             line-height: 2;
         }
 
@@ -50,7 +51,7 @@
                     const nAnswer = Math.floor(Math.random() * aAnswers.length);
                     this.answer.innerHTML = aAnswers[nAnswer];
                     this.answer.style.color = "red";
-                    this.answer.style.fontFamily = "'Noto Sans', cursive";
+                    this.answer.style.fontFamily = "'Cedarville Cursive', cursive";
                     this.prompt.style.display = "none";
                 });
             }
