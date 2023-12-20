@@ -3,33 +3,55 @@
 
 <head>
     <style>
+        body {
+            font-family: 'Pacifico', cursive; /* Use the Pacifico cursive font */
+        }
+
+        #question {
+            margin-top: 10px;
+        }
+
+        #answer {
+            color: red;
+            line-height: 2; /* Twice the normal height */
+        }
+
+        #prompt {
+            color: #aaa;
+        }
     </style>
 </head>
 
 <body>
     <h1>The magic 8 ball</h1>
+    <label id="prompt">Ask me anything</label><br />
     <input /><br />
     <x-magic />
     <script>
-        class Magic8Ball extends HTMLElement{
-            connectedCallback(){
-                this.innerHTML = 
-`
+        class Magic8Ball extends HTMLElement {
+            connectedCallback() {
+                this.innerHTML =
+                    `
     <button id="question">Ask</button>
     <p id="answer"></p>
 `
                 this.button = document.querySelector("#question");
-                this.button.addEventListener("click", ()=>{
-                    const answer = document.querySelector("#answer");
-                    const aAnswers=["yes", "definitely", "no"];
+                this.prompt = document.querySelector("#prompt");
+                this.answer = document.querySelector("#answer");
+
+                this.button.addEventListener("click", () => {
+                    const aAnswers = ["yes", "definitely", "no"];
                     const nAnswer = Math.floor(Math.random() * aAnswers.length);
-                    answer.innerHTML = aAnswers[nAnswer];
-                })
+                    this.answer.innerHTML = aAnswers[nAnswer];
+                    this.prompt.style.display = "none"; // Hide the prompt once a question is asked
+                });
             }
         }
 
         customElements.define("x-magic", Magic8Ball);
     </script>
+    <!-- Import the Pacifico font from Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap">
 </body>
 
 </html>
